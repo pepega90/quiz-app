@@ -1,6 +1,4 @@
-import { writable } from "svelte/store";
-
-let data = writable([
+let data = [
   {
     id: "p1",
     tanya: "Pygame menggunakan bahasa apa?",
@@ -19,6 +17,6 @@ let data = writable([
     listJawaban: ["Rust", "C++", "JavaScript", "PHP"],
     jawaban: "C++",
   },
-]);
+];
 
 export default data;

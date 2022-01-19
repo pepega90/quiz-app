@@ -4,21 +4,17 @@
   import Tanya from "./Tanya.svelte";
   import JawabanList from "./JawabanList.svelte";
 
-  let question;
-  let list = [];
+  let question = {};
+  let list = data;
   let idx = 0;
   let next = false;
   let correct = "";
-  let done = false;
-  let jawabanBenar = "";
+  let done = false;  
   let score = 0;
 
-  data.subscribe((d) => {
-    list = d;
-  });
 
   question = list[idx];
-  jawabanBenar = question.jawaban;
+  
 
   function checkJawaban(answer) {
     if (question.jawaban == answer && !done) score += 1;
@@ -34,7 +30,6 @@
     }
     correct = "";
     question = list[idx];
-    jawabanBenar = question.jawaban;
   }
 
   function restart() {
@@ -45,8 +40,6 @@
     next = false;
     score = 0;
   }
-
-  // $: console.log(correct);
 
   setContext("check", checkJawaban);
 </script>
